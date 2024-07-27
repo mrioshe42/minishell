@@ -324,3 +324,82 @@ int main(void)
 	free_list(head);
     return 0;
 }
+
+/*
+void tokenize_and_classify(char *input, t_list **head) {
+	int i = 0, j = 0;
+	char token[1024] = {0};
+	char quote_char = '\0';
+
+	while (input[i] != '\0') {
+		while (ft_is_space(input[i])) {
+			i++;
+		}
+		j = 0;
+		if (input[i] == '\'' || input[i] == '"') {
+			quote_char = input[i++];
+			while (input[i] != '\0') {
+				if (input[i] == quote_char) {
+					i++;
+					break;
+				}
+				if (input[i] == '$' && quote_char == '"') {
+					if (j > 0) {
+						token[j] = '\0';
+						set_type(head, token);
+						j = 0;
+					}
+					token[j++] = input[i++];
+					while (isalnum(input[i]) || input[i] == '_') {
+						token[j++] = input[i++];
+					}
+					token[j] = '\0';
+					set_type(head, token);
+					j = 0;
+				} else {
+					token[j++] = input[i++];
+				}
+			}
+			if (j > 0) {
+				token[j] = '\0';
+				set_type(head, token);
+			}
+		} else if (input[i] == '|' || input[i] == '<' || input[i] == '>') {
+			if (j > 0) {
+				token[j] = '\0';
+				set_type(head, token);
+				j = 0;
+			}
+			token[j++] = input[i++];
+			if ((token[0] == '>' || token[0] == '<') && input[i] == token[0]) {
+				token[j++] = input[i++];
+			}
+			token[j] = '\0';
+			set_type(head, token);
+		} else {
+			while (input[i] != '\0' && !ft_is_space(input[i]) && input[i] != '\'' && input[i] != '"' && input[i] != '|' && input[i] != '<' && input[i] != '>') {
+				if (input[i] == '$') {
+					if (j > 0) {
+						token[j] = '\0';
+						set_type(head, token);
+						j = 0;
+					}
+					token[j++] = input[i++];
+					while (isalnum(input[i]) || input[i] == '_') {
+						token[j++] = input[i++];
+					}
+					token[j] = '\0';
+					set_type(head, token);
+					j = 0;
+				} else {
+					token[j++] = input[i++];
+				}
+			}
+			if (j > 0) {
+				token[j] = '\0';
+				set_type(head, token);
+			}
+		}
+	}
+}
+*/
